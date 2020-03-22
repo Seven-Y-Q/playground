@@ -25,7 +25,7 @@ function App() {
         <Editor type="js" display={display} />
         <Editor type="css" display={display} />
         <Editor type="html" display={display} />
-        <Iframe url="https://seven-y-q.github.io/playground/dist/test.html" isFullScreen={!display} toggleFullScreen={toggleFullScreen} />
+        <Iframe url="https://seven-y-q.github.io/playground/test.html" isFullScreen={!display} toggleFullScreen={toggleFullScreen} />
       </div>
     </ThemeContext.Provider>
   );
