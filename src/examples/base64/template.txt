@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="content">
+    <input type="file" class="hidden">
+    <div class="area">
+      <div>
+        <h2>Convert image to base64</h2>
+        <p>1.Click the button and select one picture</p>
+        <p>2.Drag one picture into the area</p>
+        <p>3.Copy one picture and paste here</p>
+        <button>Upload Image</button>
+      </div>
+    </div>
+    <textarea name="name" rows="15" cols="80"></textarea>
+  </div>
+</div>

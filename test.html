@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style></style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/javascript">
+    window.addEventListener('message', handleMessage, false);
+    function handleMessage(message) {
+      var message = JSON.parse(message.data);
+      if (message.type === 'html') {
+        document.querySelector('#app').innerHTML = message.value;
+      }
+
+      if (message.type === 'js') {
+        document.querySelector('.iframe') && document.querySelector('.iframe').remove();
+        var newScript = document.createElement("script");
+        var inlineScript = document.createTextNode('try {' + message.value + '\n}catch(e){}');
+        newScript.classList.add('iframe');
+        newScript.appendChild(inlineScript);
+        document.querySelector('body').appendChild(newScript);
+      }
+
+      if (message.type === 'css') {
+        document.querySelector('style').innerText = message.value;
+      }
+    }
+  </script>
+</body>
+</html>

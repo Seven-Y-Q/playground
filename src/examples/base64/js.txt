@@ -1,0 +1,51 @@
+const util = (() => ({
+  getBase64: file => (
+    new Promise(resolve => {
+      let reader = new FileReader();
+
+      reader.onload = function() {
+        resolve(reader.result);
+      };
+
+      reader.readAsDataURL(file);
+    })
+  )
+}))();
+(() => {
+  const input = document.querySelector('input');
+  const button = document.querySelector('button');
+  const area = document.querySelector('.area');
+  const textarea = document.querySelector('textarea');
+  let store = {
+    set imgSrc(value) {
+      textarea.value = value;
+    }
+  };
+
+  input.addEventListener('change', handleInput);
+  area.addEventListener('drop', handleAreaDrop);
+  area.addEventListener('dragover', handleAreaDragover);
+  area.addEventListener('paste', handleAreaPaste);
+  button.addEventListener('click', handleButtonClick);
+
+  async function handleInput(e) {
+    store.imgSrc = await util.getBase64(e.target.files[0]);
+  }
+
+  function handleButtonClick() {
+    input.click();
+  }
+
+  async function handleAreaDrop(e) {
+    e.preventDefault();
+    store.imgSrc = await util.getBase64(e.dataTransfer.files[0]);
+  }
+
+  function handleAreaDragover(e) {
+    e.preventDefault();
+  }
+
+  async function handleAreaPaste(e) {
+    store.imgSrc = await util.getBase64(e.clipboardData.files[0]);
+  }
+})()
