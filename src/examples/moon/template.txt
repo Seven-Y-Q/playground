@@ -1,0 +1,17 @@
+<!-- 我叫小moon -->
+<!-- 从小在西安长大 -->
+<!-- 我有个梦想，就是在家办公。。。还可以赚很多钱 -->
+<!-- 估计大家都是这么想的吧^_^ -->
+
+<!-- 我想做个名片 -->
+<!-- 总之不能太难看吧 -->
+<!-- 让我们开始吧 -->
+<div id="part-view">
+  <img src="https://little-white.github.io/moon/bear.jpeg" />
+  <div class="summary">
+      <div class="location">西安</div>
+      <div class="name">moon</div>
+      <div class="position">xxx职位</div>
+      <div class="company">xxx公司</div>
+  </div>
+</div>
