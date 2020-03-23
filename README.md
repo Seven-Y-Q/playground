@@ -10,13 +10,14 @@ sh build_workers.sh
 ```
 ## node modules
 ```bash
-npm i
+npm install
 ```
 
 # Run
 ```bash
 npm start
 # seperate server for iframe
+npm install http-server -g
 http-server
 ```
 
